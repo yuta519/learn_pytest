@@ -1,7 +1,12 @@
+import configparser
 from shodan import Shodan
 
 def fetch_ip_info(ipaddress):
-    api = Shodan('EEQ01JvGzHCfS5Ddoui0XZMfNyKoSu1P')
+    config = configparser.ConfigParser()
+    config.read('config.ini')
+    api_key = config['Shodan']['api_key']
+    print(api_key)
+    api = Shodan(api_key)
     return type(api.host(ipaddress))
 
 
