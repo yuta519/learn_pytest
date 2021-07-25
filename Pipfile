@@ -8,6 +8,7 @@ shodan = "*"
 requests = "*"
 pytest = "*"
 sqlalchemy = "*"
+psycopg2 = "*"
 
 [dev-packages]
 
