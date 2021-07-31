@@ -25,10 +25,13 @@ def fetch_ip_info(ipaddress):
     return api.host(ipaddress)
 
 def fetch_notifier():
-    pass
-
+    api_key = return_api_key()
+    endpoint = f'{api_base_url}/notifier?key={api_key}'
+    response = requests.get(endpoint)
+    return response.json()
 
 
 if __name__ == '__main__':
     print(fetch_ip('8.8.8.8'))
     print(fetch_ip_info('8.8.8.8'))
+    print(fetch_notifier())
