@@ -30,8 +30,16 @@ def fetch_notifier():
     response = requests.get(endpoint)
     return response.json()
 
+# Can't use alert api on free account
+def fetch_alert(ipaddress):
+    api_key = return_api_key()
+    endpoint = f'{api_base_url}/shodan/alert?key={api_key}'
+    data = {"name": "DNS Alert", "filters": {"ip": ipaddress}}
+    response = requests.post(endpoint, data)
+    return response.json()
+
+
 
 if __name__ == '__main__':
     print(fetch_ip('8.8.8.8'))
-    print(fetch_ip_info('8.8.8.8'))
     print(fetch_notifier())
