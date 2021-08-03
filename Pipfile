@@ -9,6 +9,7 @@ requests = "*"
 pytest = "*"
 sqlalchemy = "*"
 psycopg2 = "*"
+pytest-postgresql = "*"
 
 [dev-packages]
 
