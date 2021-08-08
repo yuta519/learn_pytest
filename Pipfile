@@ -10,6 +10,7 @@ pytest = "*"
 sqlalchemy = "*"
 psycopg2 = "*"
 pytest-postgresql = "*"
+pytest-mock = "*"
 
 [dev-packages]
 
