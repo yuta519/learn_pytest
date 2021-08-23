@@ -41,7 +41,7 @@ def setup_database(postgresql_my):
 #     transacted_postgresql_db.connection.execute('DROP TABLE my_table')
 
 @pytest.fixture
-def setup_database_test(postgresql_my):
+def database_session(postgresql_my):
 
     def dbcreator():
         return postgresql_my.cursor().connection
@@ -54,8 +54,8 @@ def setup_database_test(postgresql_my):
     session.close()
 
 @pytest.fixture
-def insert_data(setup_database_test):
-    session = setup_database_test
+def testdata_for_root(database_session):
+    session = database_session
 
     try:
         user = User(
